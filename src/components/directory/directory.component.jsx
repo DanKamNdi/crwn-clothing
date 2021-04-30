@@ -47,15 +47,8 @@ class Directory extends Component {
   render() {
     return (
       <div className='directory-menu'>
-        {this.state.cards.map(({ title, imageUrl, id, size }) => {
-          return (
-            <MenuItem
-              title={title.toUpperCase()}
-              key={id}
-              image={imageUrl}
-              size={size}
-            />
-          );
+        {this.state.cards.map(({ id, ...otherCardProps }) => {
+          return <MenuItem key={id} {...otherCardProps} />;
         })}
       </div>
     );
